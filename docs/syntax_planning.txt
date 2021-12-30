@@ -1,0 +1,58 @@
+TODO:
+<statement> => <change statement> | <query statement> | <config statement>
+<change statement> => <label phrase><link phrase><change terminator> | <label phrase><link phrase><label phrase><change terminator>
+<label phrase> => <label> | <label>,<label phrase> | <label>, <label phrase> | <label> and <label phrase>
+<label> => [A-Za-z]* | ".*"
+<link phrase> => <link><modifier> | <link>
+<link> => is | are | has 
+<query statement> => <label phrase><query terminator> | <label phrase><filter phrase><query terminator> | <label phrase><filter phrase><label phrase><query terminator>
+<filter phrase> => to | and | links | hlinks | xor | or | subtype | group
+<modifier> => not | hlink
+<config statement> => <config item><config item value><config terminator>
+<termination> => <statement terminator> | ! | <query terminator>
+<statement terminator> => .
+<config terminator> => ! | .
+<query terminator> => ?
+
+
+Explanations:
+'parent' refers to a hierachrical relation of a node, which is the most common form. 'Isomorph' is another form of relation,as is 'shared parent'.
+<statement>s are the most base form of proper things to send to the engine.
+split into change and query statements.
+if any label used does not already exist within the label list, it will be created in such a way as to support current structure.
+
+<label>s are either whole words without spaces, or if they have spaces, need double quotes around them, single quotes or escaped doubles allowed inside
+
+Changes can be:
+x is. -> create a node with no parents, labelled x, if it doesn't already exist.
+x is y. -> set y as having a parental link to x.
+x,y are z. -> set z as having parental link to x and y.
+x and y are z. -> likewise to above
+x is y,z. -> give x two parental relations, y and z.
+"x y" is z. -> give label "x y" (like a name) the parent z.
+x is "y z". -> give x the parent of "y z"
+x are z. -> assign all nodes with x as a parent, to be also children of z.(as opposed to making just z a parent of x directly)
+x has hlink y. -> give x a hyperlink, generic, that is y(expected to be a functional URL)
+x has <type> hlink y -> give x a hyperlink, of <type>, that is y(again, functional URL expected)
+
+queries can be:
+x? -> returns true or false depending on if x exists
+x links? -> returns readout of x's links
+x hlinks? -> returns only hyperlinks of x
+x bacon y? -> returns smallest number of links needed to traverse from x to y
+x to y? -> likewise to bacon
+x and y? list all nodes that share x and y
+x xor y? list all nodes that only part of x or y, not both
+x or y? list all nodes that share x, y, or both
+group x? list all nodes that have x as a parent
+group subtype x? list all nodes that have x as a grandparent, grouped by their immediate parents that are children of x. Some may overlap, those will get their own combo header in the readout
+tree x? shows x as the focus of a parentage tree, and shows all nodes up to <abstract> that are included in its parentage
+
+config can be:
+-a setting for how far a bacon search can traverse, for the sake of limiting compute time.
+-a setting for maximum compute time, which can be set between 0 and some number of milliseconds, 0 meaning that the maximum simply doesn't exist, and any given computation is allowed infinite time until completion or interrupt.
+
+
+
+
+
