@@ -51,8 +51,9 @@ tree x? shows x as the focus of a parentage tree, and shows all nodes up to <abs
 config can be:
 -a setting for how far a bacon search can traverse, for the sake of limiting compute time.
 -a setting for maximum compute time, which can be set between 0 and some number of milliseconds, 0 meaning that the maximum simply doesn't exist, and any given computation is allowed infinite time until completion or interrupt.
-
-
+-preference of node readout format
+list relations <together(compact) | separately(expanded)>
+--subprefs related to readout, like how to order groupings by alphabetical and such
 
 
 

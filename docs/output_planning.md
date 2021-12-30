@@ -3,7 +3,7 @@ output for most commands should look something like the following
 --------------------------------------------------------
 -listing a node's properties:
 
-# <node name>
+# \<node name\>
 ___
 [expanded variation]
 ## DESCRIPTION
@@ -11,33 +11,33 @@ a type of ship, this is a component of the naval forces of somenation
 
 ## RELATIONS:
 ### HYPERLINKS
-generic: www.sdkfs.com
-image: cdn.imagehoster.com/slkdjfsldkfjsk.jpg
+- generic: www.sdkfs.com
+- image: cdn.imagehoster.com/slkdjfsldkfjsk.jpg
 
 ### PARENTS
-Zzzz
+- Zzzz
 
 ### CHILDREN
-Yyyyy
+- Yyyyy
 
 ### BOTH
-Tttt:blue
-Uuuu:blue,ship
+- Tttt:blue
+- Uuuu:blue,ship
 
 ___
 [compacted variation]
 
 ## HYPERLINKS
-generic: www.sdkfs.com
-image: cdn.imagehoster.com/slkdjfsldkfjsk.jpg
+- generic: www.sdkfs.com
+- image: cdn.imagehoster.com/slkdjfsldkfjsk.jpg
 
 ## RELATIONS:
-<node name>: <relation type>
-Zzzz: parent
-Yyyy: child
-Qqqq: isomorph
-Tttt: both:blue, both:ship
-Uuuu: both:blue
+- \<node name\>: \<relation type\>
+- Zzzz: parent
+- Yyyy: child
+- Qqqq: isomorph
+- Tttt: both:blue, both:ship
+- Uuuu: both:blue
 
 
 
